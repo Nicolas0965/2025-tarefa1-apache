@@ -6,15 +6,17 @@ services:
     volumes:
       - ./apache/tarefa1.conf:/etc/apache2/sites-enabled/tarefa1.conf
       - ./exemplo.lan:/opt/web/exemplo.lan
+      - ./apache/dir.conf:/etc/apache2/mods-available/dir.conf
 
     networks:
       redeapache:
         aliases:
           - exemplo.lan
           - www.exemplo.lan
+          - eq10.exemplo.lan
     develop:
       watch:
-        - path: ./apache/test1.conf
+        - path: ./apache/tarefa1.conf
           action: restart
 
   cliente:
